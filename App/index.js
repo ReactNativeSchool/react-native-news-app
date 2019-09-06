@@ -14,7 +14,7 @@ import { TopHeadlines } from './graphql/queries';
 const styles = StyleSheet.create({
   headerText: {
     color: '#ff8d01',
-    fontWeight: '900',
+    fontWeight: 'bold',
     fontSize: 40,
     paddingHorizontal: 10,
     marginBottom: 30,
