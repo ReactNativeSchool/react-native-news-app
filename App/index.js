@@ -34,9 +34,8 @@ class App extends React.Component {
 
   requestApollo = () => {
     client
-      .query({ query: TopHeadlines })
+      .query({ query: TopHeadlines, variables: { category: 'technology' } })
       .then(response => {
-        console.log(response);
         this.setState({
           articles: response.data.headlines.articles,
           loading: response.loading,
