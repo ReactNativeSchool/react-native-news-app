@@ -9,7 +9,7 @@ const restLink = new RestLink({
   },
 });
 
-export const client = ApolloClient({
+export const client = new ApolloClient({
   link: restLink,
   cache: new InMemoryCache(),
 });

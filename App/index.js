@@ -7,6 +7,9 @@ import {
   ActivityIndicator,
 } from 'react-native';
 
+import { client } from './graphql/client';
+import { TopHeadlines } from './graphql/queries';
+
 const styles = StyleSheet.create({
   headerText: {
     color: '#ff8d01',
@@ -22,6 +25,23 @@ class App extends React.Component {
   state = {
     articles: [],
     loading: true,
+  };
+
+  componentDidMount() {
+    this.requestTopHeadlines();
+  }
+
+  requestTopHeadlines = () => {
+    client
+      .query({
+        query: TopHeadlines,
+      })
+      .then(response => {
+        console.log('response', response);
+      })
+      .catch(err => {
+        console.log('error', err);
+      });
   };
 
   renderFooter = () => {
