@@ -1,5 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Linking,
+} from 'react-native';
 import formatDistanceStrict from 'date-fns/formatDistanceStrict';
 
 const styles = StyleSheet.create({
@@ -43,19 +49,35 @@ const styles = StyleSheet.create({
   },
 });
 
-export const ArticleRow = ({ title, publishedAt, source, index }) => (
-  <View style={styles.row}>
-    <View style={styles.numberContainer}>
-      <Text style={styles.number}>{index}</Text>
+const openLink = url => {
+  Linking.canOpenURL(url)
+    .then(supported => {
+      if (!supported) {
+        return alert('sorry, something went wrong!');
+      }
+
+      return Linking.openURL(url);
+    })
+    .catch(() => {
+      return alert('sorry, something went wrong!');
+    });
+};
+
+export const ArticleRow = ({ title, publishedAt, source, index, url }) => (
+  <TouchableOpacity onPress={() => openLink(url)}>
+    <View style={styles.row}>
+      <View style={styles.numberContainer}>
+        <Text style={styles.number}>{index + 1}</Text>
+      </View>
+      <View style={styles.content}>
+        <Text style={styles.source}>{source.name}</Text>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.publishedAt}>
+          {formatDistanceStrict(new Date(publishedAt), new Date(), {
+            addSuffix: true,
+          })}
+        </Text>
+      </View>
     </View>
-    <View style={styles.content}>
-      <Text style={styles.source}>{source.name}</Text>
-      <Text style={styles.title}>{title}</Text>
-      <Text style={styles.publishedAt}>
-        {formatDistanceStrict(new Date(publishedAt), new Date(), {
-          addSuffix: true,
-        })}
-      </Text>
-    </View>
-  </View>
+  </TouchableOpacity>
 );
