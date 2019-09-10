@@ -14,6 +14,7 @@
     "apollo-client": "^2.6.4",
     "apollo-link": "^1.2.13",
     "apollo-link-rest": "^0.7.3",
+    "date-fns": "^2.1.0",
     "graphql": "^14.5.4",
     "graphql-anywhere": "^4.2.4",
     "graphql-tag": "^2.10.1",
