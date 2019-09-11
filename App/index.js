@@ -36,6 +36,7 @@ class App extends React.Component {
     client
       .query({
         query: TopHeadlines,
+        variables: { category: 'technology' },
       })
       .then(response => {
         console.log('response', response);
