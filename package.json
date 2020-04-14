@@ -19,8 +19,8 @@
     "graphql-anywhere": "^4.2.4",
     "graphql-tag": "^2.10.1",
     "qs": "^6.8.0",
-    "react": "16.9.0",
-    "react-native": "0.61.5",
+    "react": "16.11.0",
+    "react-native": "0.62.2",
     "react-native-webview": "^8.0.4"
   },
   "devDependencies": {
@@ -28,11 +28,11 @@
     "@babel/runtime": "^7.6.2",
     "babel-jest": "^24.9.0",
     "eslint": "^6.8.0",
-    "eslint-config-handlebarlabs": "^0.0.4",
+    "eslint-config-handlebarlabs": "^0.0.5",
     "jest": "^24.9.0",
-    "metro-react-native-babel-preset": "^0.56.0",
+    "metro-react-native-babel-preset": "^0.58.0",
     "prettier": "^1.19.1",
-    "react-test-renderer": "16.9.0"
+    "react-test-renderer": "16.11.0"
   },
   "jest": {
     "preset": "react-native"
